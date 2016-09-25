@@ -1,0 +1,26 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <title>Task 03: перестановки</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+</head>
+<body>
+    <header>
+        {% if message %}
+            <p class="message" id="message">{{ message }}</p>
+        {% endif %}
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flash_messages" id="flash_messages">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </header>
+    
+    {% block body %}{% endblock %}
+</body>

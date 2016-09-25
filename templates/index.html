@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <main>
+        <form method="POST" action="{{ url_for('post_array') }}" class="post_array">
+            <div>
+                <input type="submit" value="Генерировать" id="next_permutation">
+                <input type="button" value="Стоп" id="btn_stop_gnerator" hidden="true"  
+                       onclick="location.href='{{ url_for('stop') }}'">
+            </div>
+            <br>
+            <div>
+                <ul class="io_permutations" id="io_permutations"></ul>
+            </div>
+            <br>
+            <div>
+                <textarea rows="10" cols="40" name="array" id="io_array"></textarea>
+            </div>
+        </form>
+    </main>
+
+    <script type="text/javascript">
+        "use strict";
+
+        var POST_ARRAY_URL = "{{ url_for('post_array') }}";
+        var NEXT_PERMUTATION_URL = "{{ url_for('next_permutation') }}";
+    </script>
+
+    <script src="{{ url_for('static', filename='js/ajax_handler.js') }}"></script>
+{% endblock %}

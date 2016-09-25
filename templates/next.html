@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <main>
+        <form method="GET" action="{{ url_for('next_permutation') }}" class="show_permutations">
+            <div>
+                <input type="submit" value="Генерировать" id="next_permutation">
+                <input type="button" value="Стоп" id="btn_stop_gnerator" 
+                       onclick="location.href='{{ url_for('stop') }}'">
+            </div>
+            <br>
+            <div>
+                <ul class="io_permutations" id="io_permutations">
+                    {% if last_permutation %}
+                        <li class="permutation">{{ last_permutation }}</li>
+                    {% endif %}
+                    {% if permutation %}
+                        <li class="permutation">{{ permutation }}</li>
+                    {% endif %}
+                </ul>
+            </div>
+        </form>
+    </main>
+{% endblock %}
